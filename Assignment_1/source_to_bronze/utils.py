@@ -89,7 +89,7 @@ def order_salary_by_department(df, salary_column, department_column):
 
 def list_department_names(department_df, country_df):
      joined_df = department_df.alias("d") \
-    .join(employee_df.alias("e"), col("d.department_i_d") == col("e.department"), "left") \
+    .join(employee_df.alias("e"), col("d.department_id") == col("e.department"), "left") \
     .join(country_df.alias("c"), col("c.country_code") == col("e.country"), "left") \
     .select("d.department_name", "c.country_name")
      return joined_df
